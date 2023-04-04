@@ -11,4 +11,10 @@ class ApplicationController < Sinatra::Base
     message = Message.create(body: params[:body], username: params[:username])
     message.to_json
   end
+
+  patch "/messages/:id" do
+    message = Message.find(params[:id])
+    message.update(body: params[:body])
+    message.to_json
+  end
 end

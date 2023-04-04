@@ -17,4 +17,10 @@ class ApplicationController < Sinatra::Base
     message.update(body: params[:body])
     message.to_json
   end
+
+  delete "/messages/:id" do
+    message = Message.find(params[:id])
+    message.destroy
+    message.to_json
+  end
 end
